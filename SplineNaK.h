@@ -128,8 +128,8 @@ namespace SplineNaK
 		{
 			std::vector<double>::const_iterator it;
 			it = std::lower_bound(xp->begin(), xp->end(), x_s);
-			int idx = std::max(int(it - xp->begin()) - 1, 0);
-			idx = std::min(idx,int(xp->size()-2));
+			int idx = (std::max)(int(it - xp->begin()) - 1, 0);		//windows.h defines these macros, i want to use functions
+			idx = (std::min)(idx,int(xp->size()-2));
 
 			double y_s = d[idx] * (x_s - (*xp)[idx + 1]) + c[idx];
 			y_s = y_s * (x_s - (*xp)[idx]) + b[idx];
